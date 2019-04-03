@@ -7,21 +7,77 @@ public static int[][] ticbox;
 	public static int win(int [][]tic) {
 		//check all rows
 		//loop through rows from 0 to 3 and check if all the 3 places have same marks
- 		
+		//int count;
+ 		for(int i = 0; i < 3; i++)
+ 		{
+ 			int arr[] = new int[3];
+ 			for(int j = 0; j < 3; j++)
+ 			{
+ 			  arr[j] = tic[i][j];
+ 			}
+ 			if(arr[0] == 1 && arr[1] == 1 && arr[2] == 1)
+ 			{
+ 				return 1;
+ 			}
+ 			if(arr[0] == 2 && arr[1] == 2 && arr[2] == 2)
+ 			{
+ 				return 2;
+ 			}
+ 		}
 		
 		//check all cols
 		//loop through columns from 0 to 3 and check if all the 3 places have same marks
+ 		for(int i = 0; i < 3; i++)
+ 		{
+ 			int arr[] = new int[3];
+ 			for(int j = 0; j < 3; j++)
+ 			{
+ 			  arr[j] = tic[j][i];
+ 			}
+ 			if(arr[0] == 1 && arr[1] == 1 && arr[2] == 1)
+ 			{
+ 				return 1;
+ 			}
+ 			if(arr[0] == 2 && arr[1] == 2 && arr[2] == 2)
+ 			{
+ 				return 2;
+ 			}
+ 		}
  		
 		//check both diagonals 
+ 		int arr1[] = new int[3];
+ 		for(int i = 0; i < 3; i++)
+ 		{
+ 		    arr1[i] = tic[i][i];	
+ 		}
+ 		if(arr1[0] == 1 && arr1[1] == 1 && arr1[2] == 1)
+		{
+			return 1;
+		}
+		if(arr1[0] == 2 && arr1[1] == 2 && arr1[2] == 2)
+		{
+			return 2;
+		}
 		
-		
-		
-		//write your code here !!!
-		
-		
-		
-		return 0;
-		
+		int arr2[] = new int[3];
+		int k = 0;
+ 		for(int i = 2; i >= 0; i--)
+ 		{
+ 		    arr2[k] = tic[i][i];
+ 		    k++;
+ 		}
+ 		if(arr2[0] == 1 && arr2[1] == 1 && arr2[2] == 1)
+		{
+			return 1;
+		}
+		if(arr2[0] == 2 && arr2[1] == 2 && arr2[2] == 2)
+		{
+			return 2;
+		}
+
+		//write your code here !!
+
+		return 0;	
 	}
 	
 	public static void printBox(int [][]tic) {
@@ -37,12 +93,44 @@ public static int[][] ticbox;
 		//check if a2 is between 0 & 3
 		//check if the selected box is empty ie, already not marked by other player
 		//if all checks passed return true.
-		
-		
 		//Write your code here !!!
+		try {
+		int count = 0;
+		for(int i = 0; i < 3; i++)
+		{
+			if(a1 == i)
+			{
+				count = 1;
+				break;
+			}
+		}
+		int count1 = 0;
+		for(int i = 0; i < 3; i++)
+		{
+			if(a2 == i)
+			{
+				count1 = 1;
+				break;
+			}
+		}
+		int count2 = 0;
+		if(tic[a1][a2] == 0)
+		{
+			count2 = 1;
+		}
+		if(count == 1 && count1 == 1 && count2 == 1)
+		{
+			return true;
+		}
+	}
 		
-		
+		catch(Exception e)
+		{
+			System.out.println("");
+		}
 		return false;
+		
+	   
 	}
 	public static void main(String args[]) {
 		
